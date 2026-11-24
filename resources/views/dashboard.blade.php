@@ -1,33 +1,35 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.app')
 
-    <title>Dashboard Laravel</title>
+@section('title', 'Dashboard')
 
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    
-</head>
-<body>
 
-    <div class="container">
+@section('content')
 
-        <div class="card">
+    <div class="dashboard-title">
+        <h1>Selamat Datang, Suta!</h1>
+        <p>Selamat datang di sistem pembelajaran Laravel.</p>
+    </div>
 
-            <h1>Selamat Datang!</h1>
+    <div class="stats">
 
-            <p>Nama: {{ $nama }}</p>
+        <div class="stat-card">
+            <p>Menu Belajar</p>
+            <h2>6</h2>
+            <p>Menu tersedia</p>
+        </div>
 
-            <p>Kelas: {{ $kelas }}</p>
+        <div class="stat-card">
+            <p>Materi Praktik</p>
+            <h2>5</h2>
+            <p>Materi pembelajaran</p>
+        </div>
 
-            <p>Status: {{ $kampus }}</p>
-
-            <p>Saya sedang belajar Laravel 12.</p>
-
+        <div class="stat-card">
+            <p>Project</p>
+            <h2>1</h2>
+            <p>Project Laravel</p>
         </div>
 
     </div>
 
-</body>
-</html>
+@endsection

@@ -6,11 +6,11 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\KalkulatorController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('/belajar', function () {
-    return 'Halo, saya sedang belajar Laravel!';
+    return view('belajar');
 });
 
 Route::get('/profil', function () {

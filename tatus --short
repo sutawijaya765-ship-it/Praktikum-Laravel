@@ -1,0 +1,81 @@
+warning: in the working copy of 'resources/views/dashboard.blade.php', CRLF will be replaced by LF the next time Git touches it
+[1mdiff --git a/resources/views/dashboard.blade.php b/resources/views/dashboard.blade.php[m
+[1mindex 507f2c7..97bfec5 100644[m
+[1m--- a/resources/views/dashboard.blade.php[m
+[1m+++ b/resources/views/dashboard.blade.php[m
+[36m@@ -1,33 +1,35 @@[m
+[31m-<!DOCTYPE html>[m
+[31m-<html lang="id">[m
+[31m-<head>[m
+[31m-    <meta charset="UTF-8">[m
+[31m-    <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+[32m+[m[32m@extends('layouts.app')[m
+ [m
+[31m-    <title>Dashboard Laravel</title>[m
+[32m+[m[32m@section('title', 'Dashboard')[m
+ [m
+[31m-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">[m
+[31m-    [m
+[31m-</head>[m
+[31m-<body>[m
+ [m
+[31m-    <div class="container">[m
+[32m+[m[32m@section('content')[m
+ [m
+[31m-        <div class="card">[m
+[31m-[m
+[31m-            <h1>Selamat Datang!</h1>[m
+[31m-[m
+[31m-            <p>Nama: {{ $nama }}</p>[m
+[32m+[m[32m    <div class="dashboard-title">[m
+[32m+[m[32m        <h1>Selamat Datang, Suta!</h1>[m
+[32m+[m[32m        <p>Selamat datang di sistem pembelajaran Laravel.</p>[m
+[32m+[m[32m    </div>[m
+ [m
+[31m-            <p>Kelas: {{ $kelas }}</p>[m
+[32m+[m[32m    <div class="stats">[m
+ [m
+[31m-            <p>Status: {{ $kampus }}</p>[m
+[32m+[m[32m        <div class="stat-card">[m
+[32m+[m[32m            <p>Menu Belajar</p>[m
+[32m+[m[32m            <h2>6</h2>[m
+[32m+[m[32m            <p>Menu tersedia</p>[m
+[32m+[m[32m        </div>[m
+ [m
+[31m-            <p>Saya sedang belajar Laravel 12.</p>[m
+[32m+[m[32m        <div class="stat-card">[m
+[32m+[m[32m            <p>Materi Praktik</p>[m
+[32m+[m[32m            <h2>5</h2>[m
+[32m+[m[32m            <p>Materi pembelajaran</p>[m
+[32m+[m[32m        </div>[m
+ [m
+[32m+[m[32m        <div class="stat-card">[m
+[32m+[m[32m            <p>Project</p>[m
+[32m+[m[32m            <h2>1</h2>[m
+[32m+[m[32m            <p>Project Laravel</p>[m
+         </div>[m
+ [m
+     </div>[m
+ [m
+[31m-</body>[m
+[31m-</html>[m
+\ No newline at end of file[m
+[32m+[m[32m@endsection[m
+[1mdiff --git a/routes/web.php b/routes/web.php[m
+[1mindex 494de8a..d7defc6 100644[m
+[1m--- a/routes/web.php[m
+[1m+++ b/routes/web.php[m
+[36m@@ -6,11 +6,11 @@[m
+ use App\Http\Controllers\KalkulatorController;[m
+ [m
+ Route::get('/', function () {[m
+[31m-    return view('welcome');[m
+[32m+[m[32m    return view('dashboard');[m
+ });[m
+ [m
+ Route::get('/belajar', function () {[m
+[31m-    return 'Halo, saya sedang belajar Laravel!';[m
+[32m+[m[32m    return view('belajar');[m
+ });[m
+ [m
+ Route::get('/profil', function () {[m
