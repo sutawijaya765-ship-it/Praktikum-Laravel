@@ -9,7 +9,7 @@
 
     <div class="mahasiswa-header">
         <div>
-            <h1>TES HALAMAN MAHASISWA BERHASIL</h1>
+            <h1>NAMA MAHASISWA</h1>
             <p>Kelola data mahasiswa Laravel 12</p>
         </div>
 
