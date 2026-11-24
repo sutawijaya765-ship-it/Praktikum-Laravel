@@ -1,47 +1,91 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Daftar Mahasiswa</title>
+@extends('layouts.app')
 
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
+@section('title', 'Data Mahasiswa')
 
-    <div class="container">
+@section('content')
 
-        <div class="card">
+<div class="mahasiswa-page">
 
-            <h1>DAFTAR MAHASISWA</h1>
+    <div class="mahasiswa-header">
+        <div>
+            <h1>TES HALAMAN MAHASISWA BERHASIL</h1>
+            <p>Kelola data mahasiswa Laravel 12</p>
+        </div>
 
-            <p>Data mahasiswa Laravel 12</p>
+        <a href="{{ route('mahasiswa.create') }}" class="btn-tambah">
+            + Tambah Mahasiswa
+        </a>
+    </div>
 
-            <table>
+    @if (session('success'))
+        <div class="alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <div class="mahasiswa-card">
+
+        <div class="table-wrapper">
+            <table class="mahasiswa-table">
+
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>Nama</th>
-                        <th>Alamat</th>
-                        <th>Gender</th>
+                        <th>NPM</th>
+                        <th>Jurusan</th>
+                        <th>Kelas</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($mahasiswa as $mhs)
+                    @forelse ($mahasiswa as $mhs)
                         <tr>
-                            <td>{{ $mhs['nama'] }}</td>
-                            <td>{{ $mhs['alamat'] }}</td>
-                            <td>{{ $mhs['gender'] }}</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $mhs->nama }}</td>
+                            <td>{{ $mhs->npm }}</td>
+                            <td>{{ $mhs->jurusan }}</td>
+                            <td>{{ $mhs->kelas }}</td>
+
+                            <td>
+                                <div class="aksi-buttons">
+
+                                    <a href="{{ route('mahasiswa.edit', $mhs->id) }}"
+                                       class="btn-edit">
+                                        Edit
+                                    </a>
+
+                                    <form action="{{ route('mahasiswa.destroy', $mhs->id) }}"
+                                          method="POST"
+                                          onsubmit="return confirm('Yakin ingin menghapus data mahasiswa ini?')">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" class="btn-hapus">
+                                            Hapus
+                                        </button>
+                                    </form>
+
+                                </div>
+                            </td>
                         </tr>
-                    @endforeach
+
+                    @empty
+                        <tr>
+                            <td colspan="6" class="empty-data">
+                                Belum ada data mahasiswa.
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
 
             </table>
-
         </div>
 
     </div>
 
-</body>
-</html>
+</div>
+
+@endsection

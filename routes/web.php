@@ -14,11 +14,24 @@ Route::get('/belajar', function () {
 });
 
 Route::get('/profil', function () {
-    return 'Nama saya Suta Wijaya, saya sedang belajar Laravel 12!';
+    return view('profil');
 });
 
 Route::get('/controller', [BelajarController::class, 'index']);
 
-Route::get('/daftar/mahasiswa', [MahasiswaController::class, 'index']);
+Route::prefix('daftar/mahasiswa')
+    ->name('mahasiswa.')
+    ->controller(MahasiswaController::class)
+    ->group(function () {
+
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{mahasiswa}/edit', 'edit')->name('edit');
+        Route::get('/{mahasiswa}', 'show')->name('show');
+        Route::put('/{mahasiswa}', 'update')->name('update');
+        Route::delete('/{mahasiswa}', 'destroy')->name('destroy');
+
+    });
 
 Route::get('/kalkulator/segitiga', [KalkulatorController::class, 'segitiga']);

@@ -1,134 +1,357 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* ==============================
+   KALKULATOR SEGITIGA
+============================== */
+
+.calculator-page {
+    width: 100%;
+    padding: 20px 0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f1f5f9;
-    color: #1e293b;
-}
-
-.container {
+.calculator-container {
     width: 90%;
-    max-width: 900px;
-    margin: 60px auto;
+    max-width: 650px;
+    margin: 30px auto;
 }
 
-.card {
-    background: white;
+/* CARD */
+
+.calculator-page .card {
+    background: #ffffff;
     padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
-h1 {
-    color: #2563eb;
+/* JUDUL */
+
+.calculator-page h1 {
+    color: #1d4ed8;
     margin-bottom: 12px;
     text-align: center;
+    font-size: 28px;
+    font-weight: 700;
 }
 
-.card > p {
+.calculator-page .card > p {
     text-align: center;
     color: #64748b;
     margin-bottom: 25px;
+    font-size: 14px;
 }
 
-table {
+/* FORM */
+
+.calculator-page label {
+    display: block;
+    margin: 18px 0 8px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.calculator-page input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    font-size: 15px;
+    color: #1e293b;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.calculator-page input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* TOMBOL */
+
+.calculator-page button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.calculator-page button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(37, 99, 235, 0.2);
+}
+
+.calculator-page button:active {
+    transform: translateY(0);
+}
+
+/* HASIL PERHITUNGAN */
+
+.calculator-page .hasil {
+    margin-top: 28px;
+    padding: 22px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+}
+
+.calculator-page .hasil h3 {
+    color: #1d4ed8;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.calculator-page .hasil p {
+    margin: 9px 0;
+    color: #475569;
+    font-size: 14px;
+}
+
+.calculator-page .hasil h2 {
+    color: #15803d;
+    margin-top: 18px;
+    font-size: 22px;
+}
+
+/* ERROR VALIDASI */
+
+.calculator-page .error {
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+/* TABEL JIKA DIGUNAKAN */
+
+.calculator-page table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 25px;
 }
 
-th {
+.calculator-page th {
     background: #2563eb;
     color: white;
 }
 
-th, td {
+.calculator-page th,
+.calculator-page td {
     padding: 15px;
     border: 1px solid #e2e8f0;
     text-align: left;
 }
 
-tr:nth-child(even) {
+.calculator-page tr:nth-child(even) {
     background: #f8fafc;
 }
 
-tr:hover {
+.calculator-page tr:hover {
     background: #eff6ff;
 }
 
-label {
-    display: block;
-    margin: 18px 0 8px;
-    font-weight: bold;
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .calculator-page {
+        padding: 10px 0;
+    }
+
+    .calculator-container {
+        width: 94%;
+        margin: 15px auto;
+    }
+
+    .calculator-page .card {
+        padding: 22px 18px;
+    }
+
+    .calculator-page h1 {
+        font-size: 23px;
+    }
+
+    .calculator-page .hasil h2 {
+        font-size: 19px;
+    }
+
+    .calculator-page th,
+    .calculator-page td {
+        padding: 10px;
+        font-size: 13px;
+    }
 }
 
-input {
+
+/* ==============================
+   HALAMAN DATA MAHASISWA
+============================== */
+
+.mahasiswa-page {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-size: 15px;
 }
 
-button {
-    width: 100%;
-    margin-top: 22px;
-    padding: 13px;
+/* HEADER */
+
+.mahasiswa-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.mahasiswa-header h1 {
+    color: #1e293b;
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.mahasiswa-header p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* TOMBOL TAMBAH */
+
+.btn-tambah {
+    display: inline-block;
+    padding: 12px 18px;
     background: #2563eb;
     color: white;
-    border: none;
+    text-decoration: none;
     border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
 }
 
-button:hover {
+.btn-tambah:hover {
     background: #1d4ed8;
 }
 
-.hasil {
-    margin-top: 25px;
+/* CARD TABEL */
+
+.mahasiswa-card {
+    background: white;
     padding: 20px;
-    background: #eff6ff;
-    border-radius: 10px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
 }
 
-.hasil h3 {
-    color: #2563eb;
-    margin-bottom: 12px;
+/* TABEL */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
 }
 
-.hasil p {
-    margin: 8px 0;
+.mahasiswa-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
 }
 
-.hasil h2 {
-    color: #15803d;
-    margin-top: 15px;
+.mahasiswa-table th {
+    background: #1e40af;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
 }
 
-.error {
-    color: #dc2626;
+.mahasiswa-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+    font-size: 14px;
+}
+
+.mahasiswa-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* TOMBOL AKSI */
+
+.aksi-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.aksi-buttons form {
+    margin: 0;
+}
+
+.btn-edit,
+.btn-hapus {
+    display: inline-block;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
     font-size: 13px;
-    margin-top: 6px;
+    font-weight: 600;
+    cursor: pointer;
 }
+
+.btn-edit {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.btn-hapus {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.btn-edit:hover {
+    background: #bfdbfe;
+}
+
+.btn-hapus:hover {
+    background: #fecaca;
+}
+
+/* DATA KOSONG */
+
+.empty-data {
+    text-align: center;
+    padding: 30px !important;
+    color: #94a3b8 !important;
+}
+
+/* NOTIFIKASI */
+
+.alert-success {
+    padding: 14px 18px;
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* RESPONSIVE */
 
 @media (max-width: 600px) {
-    .container {
-        width: 95%;
-        margin: 25px auto;
+
+    .mahasiswa-header {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
-    .card {
-        padding: 20px;
+    .mahasiswa-header h1 {
+        font-size: 22px;
     }
 
-    th, td {
-        padding: 10px;
-        font-size: 13px;
+    .mahasiswa-card {
+        padding: 12px;
     }
 }

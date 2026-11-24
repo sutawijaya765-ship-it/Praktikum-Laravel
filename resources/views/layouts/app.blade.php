@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -239,6 +237,7 @@
         }
 
     </style>
+     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 
@@ -261,6 +260,6 @@
         </div>
 
     </div>
-
+     @stack('scripts')
 </body>
 </html>

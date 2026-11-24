@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kalkulator Segitiga</title>
+@extends('layouts.app')
 
+@section('title', 'Kalkulator Segitiga')
+
+@push('styles')
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
+@endpush
 
-    <div class="container">
+@section('content')
+
+<div class="calculator-page">
+
+    <div class="calculator-container">
 
         <div class="card">
 
@@ -80,5 +81,6 @@
 
     </div>
 
-</body>
-</html>
+</div>
+
+@endsection
